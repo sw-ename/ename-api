@@ -1,0 +1,106 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "ENAME Network API",
+    "description": "API for LEI lookup and portfolio management on the ENAME network",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.ename.ai",
+      "description": "ENAME Production API"
+    }
+  ],
+  "paths": {
+    "/lei/{leiCode}": {
+      "get": {
+        "summary": "Lookup LEI information",
+        "description": "Retrieve information about a Legal Entity Identifier",
+        "operationId": "getLEI",
+        "parameters": [
+          {
+            "name": "leiCode",
+            "in": "path",
+            "required": true,
+            "description": "The LEI code to lookup",
+            "schema": {
+              "type": "string",
+              "pattern": "^[A-Z0-9]{20}$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "LEI information retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "lei": {
+                      "type": "string"
+                    },
+                    "legalName": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "registrationDate": {
+                      "type": "string",
+                      "format": "date"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/portfolio/{portfolioId}": {
+      "get": {
+        "summary": "Get portfolio status",
+        "description": "Retrieve status and details of a trading portfolio",
+        "operationId": "getPortfolio",
+        "parameters": [
+          {
+            "name": "portfolioId",
+            "in": "path",
+            "required": true,
+            "description": "The portfolio ID",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Portfolio information retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "portfolioId": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "totalValue": {
+                      "type": "number"
+                    },
+                    "assetCount": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
