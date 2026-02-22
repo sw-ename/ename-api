@@ -13,9 +13,9 @@
   ],
   "security": [
     {
-    "oauth2": []
+      "oauth2": []
     }
-  ],  
+  ],
   "paths": {
     "/lei/{leiCode}": {
       "get": {
@@ -107,9 +107,8 @@
         }
       }
     }
-  }
-}
-"components": {
+  },
+  "components": {
     "securitySchemes": {
       "oauth2": {
         "type": "oauth2",
@@ -118,7 +117,7 @@
             "authorizationUrl": "https://login.microsoftonline.com/05219ba6-1398-48ff-9686-a4eea6b80537/oauth2/v2.0/authorize",
             "tokenUrl": "https://login.microsoftonline.com/05219ba6-1398-48ff-9686-a4eea6b80537/oauth2/v2.0/token",
             "scopes": {
-              "api://[YOUR-API-CLIENT-ID]/access_as_user": "Access ENAME API"
+              "api://99967674-55eb-4be4-b51b-92c0a9f473d1/access_as_user": "Access ENAME API"
             }
           }
         }
