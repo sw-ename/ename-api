@@ -7,10 +7,15 @@
   },
   "servers": [
     {
-      "url": "https://api.ename.ai",
+      "url": "https://apinew.ename.ai",
       "description": "ENAME Production API"
     }
   ],
+  "security": [
+    {
+   | "oauth2": []
+    }
+  ],  
   "paths": {
     "/lei/{leiCode}": {
       "get": {
@@ -97,6 +102,23 @@
                   }
                 }
               }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+"components": {
+    "securitySchemes": {
+      "oauth2": {
+        "type": "oauth2",
+        "flows": {
+          "authorizationCode": {
+            "authorizationUrl": "https://login.microsoftonline.com/05219ba6-1398-48ff-9686-a4eea6b80537/oauth2/v2.0/authorize",
+            "tokenUrl": "https://login.microsoftonline.com/05219ba6-1398-48ff-9686-a4eea6b80537/oauth2/v2.0/token",
+            "scopes": {
+              "api://[YOUR-API-CLIENT-ID]/access_as_user": "Access ENAME API"
             }
           }
         }
